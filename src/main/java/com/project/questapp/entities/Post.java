@@ -13,10 +13,9 @@ public class Post {
 
     @Id
     Long id;
-    @ManyToOne(fetch =  FetchType.LAZY) // Don't directly the data.
+    @ManyToOne(fetch =  FetchType.EAGER)
     @JoinColumn(name = "user_id" , nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE) // if a user deleted, remove all the post from that user.
-    @JsonIgnore // Do not appear in JSON data
     User user;
     String title;
 
